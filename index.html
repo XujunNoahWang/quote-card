@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A beautiful, Apple-inspired quote card application with management features">
-    <meta name="keywords" content="quote, card, Apple design, web app, javascript">
+    <meta name="description" content="A beautiful, Apple-inspired quote card application with internationalization and advanced management features">
+    <meta name="keywords" content="quote, card, Apple design, web app, javascript, internationalization, i18n, import-export, bilingual">
     <meta name="author" content="XujunNoahWang">
     <meta name="theme-color" content="#ffffff">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Quote Card - Beautiful Quote Management">
-    <meta property="og:description" content="A beautiful, Apple-inspired quote card application with management features">
+    <meta property="og:description" content="A beautiful, Apple-inspired quote card application with internationalization and advanced management features">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://xujunnoahwang.github.io/quote-card/">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Quote Card - Beautiful Quote Management">
-    <meta name="twitter:description" content="A beautiful, Apple-inspired quote card application with management features">
+    <meta name="twitter:description" content="A beautiful, Apple-inspired quote card application with internationalization and advanced management features">
     
     <title>Quote Card - Beautiful Quote Management</title>
     <link rel="stylesheet" href="styles.css">
@@ -38,6 +38,11 @@
                 <h1 class="app-title">Quote Card</h1>
             </div>
             <div class="header-right">
+                <button class="language-toggle" id="languageToggle">
+                    <span class="lang-icon zh-icon">中</span>
+                    <span class="lang-icon en-icon">EN</span>
+                    <div class="lang-slider"></div>
+                </button>
                 <button class="theme-toggle" id="themeToggle">
                     <span class="theme-icon light-icon">☀️</span>
                     <span class="theme-icon dark-icon">🌙</span>
@@ -56,7 +61,7 @@
         <!-- 管理面板 -->
         <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <h2>管理语录</h2>
+                <h2 data-i18n="manage.title">管理语录</h2>
                 <button class="close-btn" id="closeSidebar">×</button>
             </div>
             
@@ -65,16 +70,18 @@
                 <div class="add-section">
                     <textarea 
                         id="newQuoteText" 
+                        data-i18n-placeholder="manage.quotePlaceholder"
                         placeholder="输入新语录..."
                         maxlength="200"
                     ></textarea>
                     <input 
                         type="text" 
                         id="newQuoteAuthor" 
+                        data-i18n-placeholder="manage.authorPlaceholder"
                         placeholder="作者（可选）"
                         maxlength="50"
                     >
-                    <button id="addQuoteBtn" class="add-btn">添加语录</button>
+                    <button id="addQuoteBtn" class="add-btn" data-i18n="manage.addButton">添加语录</button>
                 </div>
 
                 <!-- 搜索栏 -->
@@ -82,6 +89,7 @@
                     <input 
                         type="text" 
                         id="searchInput" 
+                        data-i18n-placeholder="manage.searchPlaceholder"
                         placeholder="搜索语录..."
                     >
                 </div>
@@ -89,6 +97,13 @@
                 <!-- 语录列表 -->
                 <div class="quotes-list" id="quotesList">
                     <!-- 动态生成的语录项 -->
+                </div>
+
+                <!-- 导入导出功能 -->
+                <div class="import-export-section">
+                    <button id="exportBtn" class="ie-btn export-btn" data-i18n="manage.exportButton">导出语录</button>
+                    <button id="importBtn" class="ie-btn import-btn" data-i18n="manage.importButton">导入语录</button>
+                    <input type="file" id="importFile" accept=".json" style="display: none;">
                 </div>
             </div>
         </div>

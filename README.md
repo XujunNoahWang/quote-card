@@ -1,9 +1,9 @@
 # Quote Card
 
-![Quote Card](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![Quote Card](https://img.shields.io/badge/version-0.2.0-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-A beautiful, Apple-inspired quote card application with management features. Built with pure HTML, CSS, and JavaScript - no frameworks required.
+A beautiful, Apple-inspired quote card application with internationalization and advanced management features. Built with pure HTML, CSS, and JavaScript - no frameworks required.
 
 English | [简体中文](#简体中文)
 
@@ -14,6 +14,7 @@ English | [简体中文](#简体中文)
 - **Smooth animations** with carefully crafted transitions
 - **Responsive design** that works perfectly on all devices
 - **Dark/Light theme** with elegant toggle animation
+- **Internationalization** support for Chinese and English languages
 
 ### 🎯 Core Functionality
 - **Swipe navigation** - Navigate through quotes with smooth swipe gestures
@@ -26,13 +27,30 @@ English | [简体中文](#简体中文)
 - **Edit existing quotes** - In-place editing with instant preview
 - **Delete quotes** - Remove quotes with confirmation dialog
 - **Search functionality** - Find quotes by content or author
+- **Import/Export** - Backup and restore quotes with JSON files
 - **Persistent storage** - All quotes saved locally in your browser
 
 ### 🎪 Interactive Features
 - **Sidebar panel** - Slide-out management panel with smooth animations
 - **Real-time search** - Filter quotes as you type
 - **Drag interaction** - Real-time visual feedback during swipe gestures
+- **Language toggle** - Switch between Chinese and English interfaces
 - **Success feedback** - Clear visual confirmation for all actions
+
+## 🆕 What's New in v0.2
+
+### 🌐 Internationalization Support
+- **Dual language interface** - Complete Chinese and English support
+- **Language toggle** - Elegant slide-toggle button design matching the theme toggle
+- **Dynamic text updates** - All UI elements update instantly when switching languages
+- **Persistent language preference** - Your language choice is remembered
+
+### 📁 Import/Export Features
+- **Export to JSON** - Download all your quotes as a timestamped JSON file
+- **Import from JSON** - Upload and restore quotes from backup files
+- **Data validation** - Smart validation ensures only valid quotes are imported
+- **Backup safety** - Confirmation dialogs prevent accidental data loss
+- **Success notifications** - Beautiful toast notifications for all operations
 
 ## 🚀 Demo
 
@@ -68,12 +86,15 @@ Click the "Use this template" button to create your own repository based on this
 
 ### Managing Quotes
 - **Search**: Use the search bar to find specific quotes
-- **Edit**: Click the "修改" button to edit any quote
-- **Delete**: Click the "删除" button to remove a quote (with confirmation)
+- **Edit**: Click the "修改/Edit" button to edit any quote
+- **Delete**: Click the "删除/Delete" button to remove a quote (with confirmation)
+- **Export**: Click "导出语录/Export Quotes" to download a JSON backup file
+- **Import**: Click "导入语录/Import Quotes" to restore quotes from a JSON file
 
-### Theme Toggle
-- Click the theme toggle button (☀️/🌙) in the top-right corner
-- The theme preference is automatically saved
+### Interface Controls
+- **Theme Toggle**: Click the theme toggle button (☀️/🌙) to switch between light and dark modes
+- **Language Toggle**: Click the language toggle button (中/EN) to switch between Chinese and English
+- **Preferences**: Both theme and language preferences are automatically saved
 
 ## 🛠️ Development
 
@@ -168,6 +189,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **流畅动画** - 精心制作的过渡效果
 - **响应式设计** - 完美适配各种设备
 - **日夜主题** - 优雅的主题切换动画
+- **国际化支持** - 完整的中英文双语界面
 
 ### 🎯 核心功能
 - **滑动导航** - 流畅的手势滑动浏览语录
@@ -180,13 +202,30 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **编辑现有语录** - 原地编辑，即时预览
 - **删除语录** - 确认对话框防止误删
 - **搜索功能** - 按内容或作者搜索语录
+- **导入导出** - 支持JSON格式的语录备份和恢复
 - **持久存储** - 所有语录保存在浏览器本地
 
 ### 🎪 交互特性
 - **侧边面板** - 滑出式管理面板，动画流畅
 - **实时搜索** - 输入时即时过滤语录
 - **拖拽交互** - 滑动手势的实时视觉反馈
+- **语言切换** - 中英文界面无缝切换
 - **成功反馈** - 所有操作都有清晰的视觉确认
+
+## 🆕 v0.2 新功能
+
+### 🌐 国际化支持
+- **双语界面** - 完整的中英文界面支持
+- **语言切换** - 优雅的滑动切换设计，与主题切换保持一致
+- **动态文本更新** - 切换语言时所有UI元素即时更新
+- **语言偏好记忆** - 自动保存您的语言选择
+
+### 📁 导入导出功能
+- **导出为JSON** - 下载带时间戳的语录备份文件
+- **从JSON导入** - 从备份文件恢复语录数据
+- **数据验证** - 智能验证确保只导入有效语录
+- **安全保护** - 确认对话框防止意外数据丢失
+- **成功通知** - 精美的弹窗通知所有操作结果
 
 ## 🚀 在线演示
 

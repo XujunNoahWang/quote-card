@@ -1,7 +1,7 @@
 {
   "name": "quote-card",
-  "version": "1.0.0",
-  "description": "A beautiful, Apple-inspired quote card application with management features",
+  "version": "0.2.0",
+  "description": "A beautiful, Apple-inspired quote card application with internationalization and advanced management features",
   "main": "index.html",
   "scripts": {
     "start": "python -m http.server 8000",
@@ -22,7 +22,11 @@
     "responsive",
     "quotes",
     "management",
-    "ui"
+    "ui",
+    "internationalization",
+    "i18n",
+    "import-export",
+    "bilingual"
   ],
   "author": "XujunNoahWang",
   "license": "MIT",

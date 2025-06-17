@@ -15,7 +15,6 @@
     --card-bg: #ffffff;
     --card-shadow: rgba(0, 0, 0, 0.1);
     --toggle-bg: #e5e5e7;
-    --toggle-active: #007aff;
 }
 
 [data-theme="dark"] {
@@ -27,7 +26,6 @@
     --card-bg: #1c1c1e;
     --card-shadow: rgba(255, 255, 255, 0.1);
     --toggle-bg: #38383a;
-    --toggle-active: #0a84ff;
 }
 
 /* 基础布局 */
@@ -64,6 +62,12 @@ body {
     gap: 16px;
 }
 
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
 /* 汉堡包菜单 */
 .hamburger-menu {
     cursor: pointer;
@@ -95,9 +99,9 @@ body {
     letter-spacing: -0.02em;
 }
 
-/* 主题切换按钮 */
-.theme-toggle {
-    width: 50px;
+/* 语言切换按钮 */
+.language-toggle {
+    width: 58px;
     height: 30px;
     background-color: var(--toggle-bg);
     border: none;
@@ -108,7 +112,85 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 4px;
+    padding: 0 6px;
+    margin-right: 12px;
+}
+
+.lang-icon {
+    font-size: 11px;
+    font-weight: 600;
+    transition: opacity 0.6s ease;
+    z-index: 1;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    line-height: 1;
+    color: var(--text-primary);
+}
+
+.zh-icon {
+    opacity: 1;
+}
+
+.en-icon {
+    opacity: 0.3;
+}
+
+/* 滑块覆盖时的文字颜色 - 确保在白色滑块上可见 */
+.lang-slider:hover + .zh-icon,
+.lang-slider + .zh-icon {
+    color: #333;
+}
+
+[data-language="en"] .en-icon {
+    color: #333;
+}
+
+[data-language="en"] .zh-icon {
+    opacity: 0.3;
+}
+
+[data-language="en"] .en-icon {
+    opacity: 1;
+}
+
+.lang-slider {
+    width: 26px;
+    height: 26px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.6s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-language="en"] .language-toggle {
+    background-color: #d1d5db;
+}
+
+[data-language="en"] .lang-slider {
+    transform: translateX(28px);
+}
+
+/* 主题切换按钮 */
+.theme-toggle {
+    width: 58px;
+    height: 30px;
+    background-color: var(--toggle-bg);
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.6s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6px;
 }
 
 .theme-icon {
@@ -116,6 +198,7 @@ body {
     transition: opacity 0.6s ease;
     z-index: 1;
     pointer-events: none;
+    color: var(--text-primary);
 }
 
 .light-icon {
@@ -147,11 +230,20 @@ body {
 }
 
 [data-theme="dark"] .theme-toggle {
-    background-color: var(--toggle-active);
+    background-color: #4b5563;
+}
+
+/* 滑块覆盖时的主题图标颜色 - 确保在白色滑块上可见 */
+[data-theme="light"] .light-icon {
+    color: #333;
+}
+
+[data-theme="dark"] .dark-icon {
+    color: #333;
 }
 
 [data-theme="dark"] .toggle-slider {
-    transform: translateX(20px);
+    transform: translateX(28px);
 }
 
 /* 主内容区域 */
@@ -604,4 +696,43 @@ body {
 .edit-form textarea {
     min-height: 60px;
     resize: vertical;
+}
+
+/* 导入导出功能 */
+.import-export-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 12px;
+}
+
+.ie-btn {
+    flex: 1;
+    padding: 10px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ie-btn:hover {
+    background-color: var(--bg-secondary);
+    border-color: var(--text-secondary);
+}
+
+.export-btn:hover {
+    background-color: #10b981;
+    border-color: #10b981;
+    color: white;
+}
+
+.import-btn:hover {
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+    color: white;
 } 
