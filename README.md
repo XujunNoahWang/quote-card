@@ -56,7 +56,7 @@ English | [简体中文](#简体中文)
 
 ## 🚀 Demo
 
-Visit the live demo: [Quote Card Demo](https://xujunnoahwang.github.io/quote-card/)
+Visit the live demo: [Quote Card Demo](https://quote-card-by-noah.vercel.app/)
 
 ## 📦 Installation
 
@@ -252,7 +252,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🚀 在线演示
 
-访问在线演示：[Quote Card Demo](https://xujunnoahwang.github.io/quote-card/)
+访问在线演示：[Quote Card Demo](https://quote-card-by-noah.vercel.app/)
 
 ## 📦 安装方法
 
