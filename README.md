@@ -47,6 +47,8 @@ English | [简体中文](#简体中文)
 
 ### 📁 Import/Export Features
 - **Export to JSON** - Download all your quotes as a timestamped JSON file
+- **Cloud Storage Integration** - Save backups to Google Drive, iCloud, OneDrive, Dropbox
+- **Cross-Device Sync** - Access your quotes on any device by importing from cloud storage
 - **Import from JSON** - Upload and restore quotes from backup files
 - **Data validation** - Smart validation ensures only valid quotes are imported
 - **Backup safety** - Confirmation dialogs prevent accidental data loss
@@ -88,8 +90,27 @@ Click the "Use this template" button to create your own repository based on this
 - **Search**: Use the search bar to find specific quotes
 - **Edit**: Click the "修改/Edit" button to edit any quote
 - **Delete**: Click the "删除/Delete" button to remove a quote (with confirmation)
-- **Export**: Click "导出语录/Export Quotes" to download a JSON backup file
-- **Import**: Click "导入语录/Import Quotes" to restore quotes from a JSON file
+
+### 📁 Backup & Sync with Cloud Storage
+**Important**: Your quotes are stored locally in your browser. To keep them safe and sync across devices, use the import/export features:
+
+#### 🔄 Export Your Quotes
+1. Click "导出语录/Export Quotes" to download a JSON backup file
+2. **Save to Cloud Storage**: Upload the JSON file to your cloud storage (Google Drive, iCloud, OneDrive, Dropbox, etc.)
+3. The exported file includes a timestamp for easy organization: `quotes-2025-06-17.json`
+
+#### 📱 Sync Across Devices
+To access your quotes on different devices (phone, tablet, other computers):
+1. **Download** the JSON backup file from your cloud storage
+2. **Open Quote Card** on the new device
+3. **Click "导入语录/Import Quotes"** and select your backup file
+4. All your quotes will be instantly available on the new device!
+
+#### 💡 Best Practices
+- **Regular Backups**: Export your quotes weekly or after adding many new ones
+- **Cloud Storage**: Keep backups in Google Drive, iCloud, or your preferred cloud service
+- **Multiple Devices**: Use the same backup file to keep all devices in sync
+- **Safety First**: Always confirm before importing to avoid accidentally overwriting your quotes
 
 ### Interface Controls
 - **Theme Toggle**: Click the theme toggle button (☀️/🌙) to switch between light and dark modes
@@ -222,6 +243,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### 📁 导入导出功能
 - **导出为JSON** - 下载带时间戳的语录备份文件
+- **云盘集成** - 支持保存到Google Drive、iCloud、OneDrive、百度云盘等
+- **跨设备同步** - 通过云盘备份在任何设备上访问您的语录
 - **从JSON导入** - 从备份文件恢复语录数据
 - **数据验证** - 智能验证确保只导入有效语录
 - **安全保护** - 确认对话框防止意外数据丢失
@@ -264,9 +287,31 @@ cd quote-card
 - **编辑**：点击"修改"按钮编辑任何语录
 - **删除**：点击"删除"按钮移除语录（有确认提示）
 
-### 主题切换
-- 点击右上角的主题切换按钮（☀️/🌙）
-- 主题偏好会自动保存
+### 📁 云端备份与设备同步
+**重要提示**：您的语录存储在浏览器本地。为了安全保存并在设备间同步，请使用导入导出功能：
+
+#### 🔄 导出语录
+1. 点击"导出语录"下载JSON备份文件
+2. **保存到云盘**：将JSON文件上传到您的云存储（Google Drive、iCloud、OneDrive、百度云盘等）
+3. 导出的文件包含时间戳，便于整理：`quotes-2025-06-17.json`
+
+#### 📱 跨设备同步
+要在不同设备（手机、平板、其他电脑）上访问您的语录：
+1. **下载**云盘中的JSON备份文件
+2. **在新设备上打开Quote Card**
+3. **点击"导入语录"**并选择您的备份文件
+4. 所有语录将立即在新设备上可用！
+
+#### 💡 最佳实践
+- **定期备份**：每周或添加大量新语录后导出备份
+- **云端存储**：将备份保存在Google Drive、iCloud或您偏好的云服务中
+- **多设备同步**：使用同一备份文件保持所有设备同步
+- **安全第一**：导入前务必确认，避免意外覆盖现有语录
+
+### 界面控制
+- **主题切换**：点击主题切换按钮（☀️/🌙）在明暗模式间切换
+- **语言切换**：点击语言切换按钮（中/EN）在中英文间切换
+- **偏好设置**：主题和语言偏好会自动保存
 
 ## 🛠️ 开发指南
 
