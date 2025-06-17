@@ -25,13 +25,23 @@ export const Header: React.FC<HeaderProps> = ({
     `}>
       <div className="flex items-center justify-between max-w-md mx-auto">
         {/* Logo */}
-        <div className="flex items-center space-x-2">
-          <div className={`
-            w-8 h-8 rounded-lg flex items-center justify-center text-white text-sm font-bold
-            bg-gradient-to-br from-blue-500 to-purple-600
-          `}>
-            Q
-          </div>
+        <div className="flex items-center space-x-3">
+          <button
+            onClick={onManageQuotes}
+            className={`
+              p-2 rounded-xl transition-all duration-200 hover:scale-105
+              ${isDarkMode 
+                ? 'hover:bg-gray-800 text-gray-300 hover:text-white' 
+                : 'hover:bg-gray-100 text-gray-600 hover:text-gray-800'
+              }
+            `}
+            title="选择标签"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
           <h1 className={`
             text-lg font-bold
             ${isDarkMode ? 'text-white' : 'text-gray-900'}
@@ -42,32 +52,14 @@ export const Header: React.FC<HeaderProps> = ({
         
         {/* 右侧按钮组 */}
         <div className="flex items-center space-x-2">
-          {/* 管理按钮 */}
-          <button
-            onClick={onManageQuotes}
-            className={`
-              p-2 rounded-xl transition-all duration-200 hover:scale-105
-              ${isDarkMode 
-                ? 'bg-gray-800 hover:bg-gray-700 text-gray-300' 
-                : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
-              }
-            `}
-            title="管理语录"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
-                d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-            </svg>
-          </button>
-          
           {/* 导入导出按钮 */}
           <button
             onClick={onImportExport}
             className={`
               p-2 rounded-xl transition-all duration-200 hover:scale-105
               ${isDarkMode 
-                ? 'bg-gray-800 hover:bg-gray-700 text-gray-300' 
-                : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
+                ? 'hover:bg-gray-800 text-gray-400 hover:text-gray-200' 
+                : 'hover:bg-gray-100 text-gray-500 hover:text-gray-700'
               }
             `}
             title="导入/导出"

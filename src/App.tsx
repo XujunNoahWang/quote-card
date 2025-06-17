@@ -4,8 +4,7 @@ import { StorageUtils } from './utils/storage';
 import { QuoteCard } from './components/QuoteCard';
 import { Header } from './components/Header';
 import { AddQuoteModal } from './components/AddQuoteModal';
-import { ManageQuotesModal } from './components/ManageQuotesModal';
-import { TagFilter } from './components/TagFilter';
+import { TagSidebar } from './components/TagSidebar';
 import { ImportExportModal } from './components/ImportExportModal';
 import { useSwipe } from './hooks/useSwipe';
 
@@ -16,7 +15,7 @@ function App() {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const [isManageModalOpen, setIsManageModalOpen] = useState(false);
+  const [isTagSidebarOpen, setIsTagSidebarOpen] = useState(false);
   const [isImportExportModalOpen, setIsImportExportModalOpen] = useState(false);
   const [filteredQuotes, setFilteredQuotes] = useState<Quote[]>([]);
 
@@ -44,6 +43,13 @@ function App() {
           id: '2',
           content: '每一次的跌倒，都是为了更好地站起来。',
           tags: ['励志', '成长'],
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+        },
+        {
+          id: '3',
+          content: '简约是复杂的终极形式。',
+          tags: ['设计', '哲学'],
           createdAt: new Date().toISOString(),
           updatedAt: new Date().toISOString(),
         }
@@ -146,20 +152,14 @@ function App() {
           isDarkMode={isDarkMode}
           onToggleDarkMode={toggleDarkMode}
           onAddQuote={() => setIsAddModalOpen(true)}
-          onManageQuotes={() => setIsManageModalOpen(true)}
+          onManageQuotes={() => setIsTagSidebarOpen(true)}
           onImportExport={() => setIsImportExportModalOpen(true)}
         />
         
-        {/* 标签过滤器 */}
-        <TagFilter 
-          tags={tags}
-          selectedTags={selectedTags}
-          onTagSelect={setSelectedTags}
-          isDarkMode={isDarkMode}
-        />
+
         
-        {/* 主内容区域 */}
-        <div className="flex-1 flex items-center justify-center p-4 overflow-hidden">
+        {/* 主内容区域 - 添加滑动区域标识 */}
+        <div className="flex-1 overflow-hidden" data-swipe-area>
           {filteredQuotes.length > 0 ? (
             <QuoteCard 
               quote={currentQuote}
@@ -170,38 +170,34 @@ function App() {
               totalCount={filteredQuotes.length}
             />
           ) : (
-            <div className="text-center">
-              <div className={`text-6xl mb-4 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>
-                📝
+            <div className="h-full flex items-center justify-center">
+              <div className="text-center">
+                <div className={`text-6xl mb-4 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>
+                  📝
+                </div>
+                <p className={`text-lg ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                  {selectedTags.length > 0 ? '没有匹配的语录' : '还没有语录'}
+                </p>
+                <p className={`text-sm mt-2 ${isDarkMode ? 'text-gray-500' : 'text-gray-500'}`}>
+                  点击右上角的 + 号添加第一条语录
+                </p>
               </div>
-              <p className={`text-lg ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                {selectedTags.length > 0 ? '没有匹配的语录' : '还没有语录'}
-              </p>
-              <p className={`text-sm mt-2 ${isDarkMode ? 'text-gray-500' : 'text-gray-500'}`}>
-                点击右上角的 + 号添加第一条语录
-              </p>
             </div>
           )}
         </div>
         
-        {/* 底部指示器 */}
-        {filteredQuotes.length > 1 && (
-          <div className="flex justify-center pb-8">
-            <div className="flex space-x-2">
-              {filteredQuotes.map((_, index) => (
-                <div
-                  key={index}
-                  className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-                    index === currentQuoteIndex
-                      ? isDarkMode ? 'bg-white' : 'bg-gray-800'
-                      : isDarkMode ? 'bg-gray-600' : 'bg-gray-300'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-        )}
+
       </div>
+      
+      {/* 标签选择侧边栏 */}
+      <TagSidebar 
+        isOpen={isTagSidebarOpen}
+        onClose={() => setIsTagSidebarOpen(false)}
+        tags={tags}
+        selectedTags={selectedTags}
+        onTagSelect={setSelectedTags}
+        isDarkMode={isDarkMode}
+      />
       
       {/* 模态框 */}
       <AddQuoteModal 
@@ -209,15 +205,6 @@ function App() {
         onClose={() => setIsAddModalOpen(false)}
         onAdd={addQuote}
         existingTags={tags.map(t => t.name)}
-        isDarkMode={isDarkMode}
-      />
-      
-      <ManageQuotesModal 
-        isOpen={isManageModalOpen}
-        onClose={() => setIsManageModalOpen(false)}
-        quotes={quotes}
-        onDelete={deleteQuote}
-        onUpdate={updateQuote}
         isDarkMode={isDarkMode}
       />
       
