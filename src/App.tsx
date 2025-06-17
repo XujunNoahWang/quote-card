@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Quote, Tag } from './types';
 import { StorageUtils } from './utils/storage';
-import { QuoteCard } from './components/QuoteCard';
+import { SwipeableQuoteCards } from './components/SwipeableQuoteCards';
 import { Header } from './components/Header';
 import { AddQuoteModal } from './components/AddQuoteModal';
 import { TagSidebar } from './components/TagSidebar';
 import { ImportExportModal } from './components/ImportExportModal';
-import { useSwipe } from './hooks/useSwipe';
 
 function App() {
   const [quotes, setQuotes] = useState<Quote[]>([]);
@@ -73,23 +72,6 @@ function App() {
     setCurrentQuoteIndex(0);
   }, [quotes, selectedTags]);
 
-  // 滑动处理
-  const handleSwipeLeft = () => {
-    if (filteredQuotes.length === 0) return;
-    setCurrentQuoteIndex(prev => (prev + 1) % filteredQuotes.length);
-  };
-
-  const handleSwipeRight = () => {
-    if (filteredQuotes.length === 0) return;
-    setCurrentQuoteIndex(prev => prev === 0 ? filteredQuotes.length - 1 : prev - 1);
-  };
-
-  useSwipe({
-    onSwipeLeft: handleSwipeLeft,
-    onSwipeRight: handleSwipeRight,
-    threshold: 80
-  });
-
   // 切换暗黑模式
   const toggleDarkMode = () => {
     const newMode = !isDarkMode;
@@ -122,26 +104,6 @@ function App() {
     StorageUtils.saveTags(updatedTags);
   };
 
-  // 删除语录
-  const deleteQuote = (id: string) => {
-    const updatedQuotes = quotes.filter(q => q.id !== id);
-    setQuotes(updatedQuotes);
-    StorageUtils.saveQuotes(updatedQuotes);
-  };
-
-  // 更新语录
-  const updateQuote = (id: string, content: string, quoteTags: string[]) => {
-    const updatedQuotes = quotes.map(q => 
-      q.id === id 
-        ? { ...q, content, tags: quoteTags, updatedAt: new Date().toISOString() }
-        : q
-    );
-    setQuotes(updatedQuotes);
-    StorageUtils.saveQuotes(updatedQuotes);
-  };
-
-  const currentQuote = filteredQuotes[currentQuoteIndex];
-
   return (
     <div className={`min-h-screen transition-colors duration-300 ${
       isDarkMode ? 'dark bg-gray-900' : 'bg-gradient-to-br from-blue-50 to-purple-50'
@@ -156,37 +118,15 @@ function App() {
           onImportExport={() => setIsImportExportModalOpen(true)}
         />
         
-
-        
-        {/* 主内容区域 - 添加滑动区域标识 */}
-        <div className="flex-1 overflow-hidden" data-swipe-area>
-          {filteredQuotes.length > 0 ? (
-            <QuoteCard 
-              quote={currentQuote}
-              onSwipeLeft={handleSwipeLeft}
-              onSwipeRight={handleSwipeRight}
-              isDarkMode={isDarkMode}
-              currentIndex={currentQuoteIndex}
-              totalCount={filteredQuotes.length}
-            />
-          ) : (
-            <div className="h-full flex items-center justify-center">
-              <div className="text-center">
-                <div className={`text-6xl mb-4 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>
-                  📝
-                </div>
-                <p className={`text-lg ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                  {selectedTags.length > 0 ? '没有匹配的语录' : '还没有语录'}
-                </p>
-                <p className={`text-sm mt-2 ${isDarkMode ? 'text-gray-500' : 'text-gray-500'}`}>
-                  点击右上角的 + 号添加第一条语录
-                </p>
-              </div>
-            </div>
-          )}
+        {/* 主内容区域 - 滑动卡片 */}
+        <div className="flex-1 overflow-hidden">
+          <SwipeableQuoteCards 
+            quotes={filteredQuotes}
+            currentIndex={currentQuoteIndex}
+            onIndexChange={setCurrentQuoteIndex}
+            isDarkMode={isDarkMode}
+          />
         </div>
-        
-
       </div>
       
       {/* 标签选择侧边栏 */}
