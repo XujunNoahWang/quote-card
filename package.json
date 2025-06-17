@@ -1,0 +1,36 @@
+{
+  "name": "quote-card",
+  "version": "1.0.0",
+  "description": "A beautiful, Apple-inspired quote card application with management features",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "serve": "python -m http.server 8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/XujunNoahWang/quote-card.git"
+  },
+  "keywords": [
+    "quote",
+    "card",
+    "apple-design",
+    "web-app",
+    "javascript",
+    "vanilla-js",
+    "responsive",
+    "quotes",
+    "management",
+    "ui"
+  ],
+  "author": "XujunNoahWang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/XujunNoahWang/quote-card/issues"
+  },
+  "homepage": "https://xujunnoahwang.github.io/quote-card/",
+  "engines": {
+    "node": ">=12.0.0"
+  }
+} 
