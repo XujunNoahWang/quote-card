@@ -1,121 +1,157 @@
-# Quote Card - 优雅的语录卡片应用
+# Quote Card
 
-一个专为移动端设计的语录管理应用，具有优雅的UI设计和丰富的功能。
+![Quote Card](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-## ✨ 特性
+A beautiful, Apple-inspired quote card application with management features. Built with pure HTML, CSS, and JavaScript - no frameworks required.
 
-### 🎨 设计理念
-- **Jony Ive风格设计** - 极简主义、优雅的交互体验
-- **移动优先** - 针对iPhone 15 Pro Max优化，完美适配各种移动设备
-- **日夜模式** - 支持深色/浅色主题切换
-- **流畅动画** - 精心设计的过渡动画和微交互
+## ✨ Features
 
-### 📱 核心功能
+### 🎨 Beautiful Design
+- **Apple-inspired interface** with clean, minimalist aesthetics
+- **Smooth animations** with carefully crafted transitions
+- **Responsive design** that works perfectly on all devices
+- **Dark/Light theme** with elegant toggle animation
 
-#### 语录展示
-- **卡片式展示** - 每次只显示一条语录，专注阅读体验
-- **滑动切换** - 左右滑动查看不同语录
-- **循环浏览** - 无限循环，永不停止的灵感之旅
-- **精美排版** - 优雅的引号装饰和标签展示
+### 🎯 Core Functionality
+- **Swipe navigation** - Navigate through quotes with smooth swipe gestures
+- **Keyboard support** - Use arrow keys for navigation
+- **Touch-friendly** - Optimized for mobile touch interactions
+- **Infinite loop** - Seamlessly browse through your quote collection
 
-#### 语录管理
-- **快速添加** - 点击+号快速添加新语录
-- **标签系统** - 为语录添加分类标签，便于整理
-- **智能搜索** - 支持内容和标签搜索
-- **编辑删除** - 随时修改或删除语录
+### 📝 Quote Management
+- **Add new quotes** - Easily add quotes with optional author attribution
+- **Edit existing quotes** - In-place editing with instant preview
+- **Delete quotes** - Remove quotes with confirmation dialog
+- **Search functionality** - Find quotes by content or author
+- **Persistent storage** - All quotes saved locally in your browser
 
-#### 高级功能
-- **标签筛选** - 按标签筛选显示特定类型的语录
-- **数据导出** - 将语录导出为JSON文件备份
-- **数据导入** - 从备份文件恢复语录数据
-- **本地存储** - 所有数据保存在本地，保护隐私
+### 🎪 Interactive Features
+- **Sidebar panel** - Slide-out management panel with smooth animations
+- **Real-time search** - Filter quotes as you type
+- **Drag interaction** - Real-time visual feedback during swipe gestures
+- **Success feedback** - Clear visual confirmation for all actions
 
-## 🚀 快速开始
+## 🚀 Demo
 
-### 安装依赖
+Visit the live demo: [Quote Card Demo](https://xujunnoahwang.github.io/quote-card/)
+
+## 📦 Installation
+
+### Option 1: Clone the Repository
 ```bash
-npm install
+git clone https://github.com/XujunNoahWang/quote-card.git
+cd quote-card
 ```
 
-### 启动开发服务器
-```bash
-npm start
+### Option 2: Download ZIP
+Download the ZIP file from the [releases page](https://github.com/XujunNoahWang/quote-card/releases) and extract it.
+
+### Option 3: Use as Template
+Click the "Use this template" button to create your own repository based on this project.
+
+## 🎯 Usage
+
+### Basic Setup
+1. Open `index.html` in any modern web browser
+2. Start browsing the default quotes by swiping or using arrow keys
+3. Click the hamburger menu (☰) to open the management panel
+
+### Adding Quotes
+1. Open the management panel
+2. Enter your quote in the text area
+3. Optionally add an author (defaults to "佚名" if empty)
+4. Click "添加语录" to add the quote
+5. The new quote will appear at the beginning of your collection
+
+### Managing Quotes
+- **Search**: Use the search bar to find specific quotes
+- **Edit**: Click the "修改" button to edit any quote
+- **Delete**: Click the "删除" button to remove a quote (with confirmation)
+
+### Theme Toggle
+- Click the theme toggle button (☀️/🌙) in the top-right corner
+- The theme preference is automatically saved
+
+## 🛠️ Development
+
+### Local Development
+1. Clone the repository
+2. Start a local server (optional but recommended):
+   ```bash
+   # Using Python 3
+   python -m http.server 8000
+   
+   # Using Node.js
+   npx http-server
+   
+   # Using PHP
+   php -S localhost:8000
+   ```
+3. Open `http://localhost:8000` in your browser
+
+### File Structure
+```
+quote-card/
+├── index.html          # Main HTML file
+├── styles.css          # CSS styles with theme support
+├── script.js           # JavaScript functionality
+├── README.md           # English documentation
+├── README-zh.md        # Chinese documentation
+└── LICENSE             # MIT License
 ```
 
-应用将在 `http://localhost:3000` 启动
+### Key Technologies
+- **HTML5** - Modern semantic markup
+- **CSS3** - Advanced styling with CSS variables and animations
+- **Vanilla JavaScript** - Pure JavaScript with ES6+ features
+- **LocalStorage API** - Client-side data persistence
+- **Touch Events API** - Mobile touch interaction support
 
-### 构建生产版本
-```bash
-npm run build
-```
+## 🎨 Design Philosophy
 
-## 📖 使用指南
+This project follows Apple's design principles:
 
-### 基本操作
-1. **查看语录** - 在主界面左右滑动浏览语录
-2. **添加语录** - 点击右上角+号按钮
-3. **管理语录** - 点击管理按钮查看所有语录
-4. **切换主题** - 点击日/夜模式按钮
+- **Simplicity**: Focus on essential features without clutter
+- **Clarity**: Clear visual hierarchy and intuitive interactions
+- **Consistency**: Uniform design language throughout the application
+- **Accessibility**: Keyboard navigation and screen reader support
+- **Performance**: Lightweight and fast, no external dependencies
 
-### 标签使用
-- 添加语录时可以添加多个标签
-- 在标签筛选区域选择标签来过滤语录
-- 标签会自动为不同内容分配不同颜色
+## 📱 Browser Support
 
-### 数据管理
-- **导出**: 在导入/导出界面点击"导出数据"
-- **导入**: 选择之前导出的JSON文件进行导入
-- **注意**: 导入会覆盖现有数据，请先备份
+- ✅ Chrome 60+
+- ✅ Firefox 55+
+- ✅ Safari 12+
+- ✅ Edge 79+
+- ✅ iOS Safari 12+
+- ✅ Chrome for Android 60+
 
-## 🎯 设计亮点
+## 🤝 Contributing
 
-### 移动优先设计
-- 专为触摸操作优化
-- 适配各种屏幕尺寸
-- 流畅的滑动手势
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 
-### 视觉设计
-- 毛玻璃效果和渐变背景
-- 精心调配的颜色方案
-- 优雅的动画过渡
+### Development Guidelines
+1. Follow the existing code style
+2. Write clear, descriptive commit messages
+3. Test your changes on multiple browsers
+4. Update documentation as needed
 
-### 用户体验
-- 直观的操作逻辑
-- 即时的视觉反馈
-- 无干扰的专注体验
+## 📄 License
 
-## 🛠 技术栈
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-- **React 18** - 现代化的用户界面框架
-- **TypeScript** - 类型安全的JavaScript
-- **Tailwind CSS** - 实用优先的CSS框架
-- **Local Storage** - 客户端数据持久化
+## 🙏 Acknowledgments
 
-## 📱 适配设备
+- Inspired by Apple's design philosophy
+- Icons: Emoji characters for universal compatibility
+- Fonts: System fonts for optimal performance and consistency
 
-- iPhone 15 Pro Max (主要优化)
-- iPhone 14/13/12 系列
-- Android 高端设备
-- 各种屏幕尺寸的平板设备
+## 📞 Contact
 
-## 🎨 设计哲学
-
-这个应用的设计深受苹果设计理念的启发：
-
-> "简约是复杂的终极形式。让每一个细节都有存在的理由，去除一切不必要的元素，专注于核心体验。"
-
-- **Less is More** - 界面简洁，功能精准
-- **Form Follows Function** - 设计服务于功能
-- **Attention to Detail** - 每个像素都经过精心考虑
-
-## 🌟 未来规划
-
-- [ ] 语录分享功能
-- [ ] 云端同步支持
-- [ ] 更多主题选择
-- [ ] 语录收藏功能
-- [ ] 统计和洞察功能
+- GitHub: [@XujunNoahWang](https://github.com/XujunNoahWang)
+- Project Link: [https://github.com/XujunNoahWang/quote-card](https://github.com/XujunNoahWang/quote-card)
 
 ---
 
-**Quote Card** - 让每一句话都成为生活的启发 ✨ 
+Made with ❤️ by [XujunNoahWang](https://github.com/XujunNoahWang) 

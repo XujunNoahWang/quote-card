@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A beautiful, Apple-inspired quote card application with management features">
+    <meta name="keywords" content="quote, card, Apple design, web app, javascript">
+    <meta name="author" content="XujunNoahWang">
+    <meta name="theme-color" content="#ffffff">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Quote Card - Beautiful Quote Management">
+    <meta property="og:description" content="A beautiful, Apple-inspired quote card application with management features">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://xujunnoahwang.github.io/quote-card/">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Quote Card - Beautiful Quote Management">
+    <meta name="twitter:description" content="A beautiful, Apple-inspired quote card application with management features">
+    
+    <title>Quote Card - Beautiful Quote Management</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💭</text></svg>">
+</head>
+<body>
+    <div class="app">
+        <!-- 顶部栏 -->
+        <header class="header">
+            <div class="header-left">
+                <div class="hamburger-menu" id="hamburgerMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <h1 class="app-title">Quote Card</h1>
+            </div>
+            <div class="header-right">
+                <button class="theme-toggle" id="themeToggle">
+                    <span class="theme-icon light-icon">☀️</span>
+                    <span class="theme-icon dark-icon">🌙</span>
+                    <div class="toggle-slider"></div>
+                </button>
+            </div>
+        </header>
+
+        <!-- 卡片容器 -->
+        <main class="main-content">
+            <div class="cards-container" id="cardsContainer">
+                <!-- 动态生成的卡片 -->
+            </div>
+        </main>
+
+        <!-- 管理面板 -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>管理语录</h2>
+                <button class="close-btn" id="closeSidebar">×</button>
+            </div>
+            
+            <div class="sidebar-content">
+                <!-- 添加新语录 -->
+                <div class="add-section">
+                    <textarea 
+                        id="newQuoteText" 
+                        placeholder="输入新语录..."
+                        maxlength="200"
+                    ></textarea>
+                    <input 
+                        type="text" 
+                        id="newQuoteAuthor" 
+                        placeholder="作者（可选）"
+                        maxlength="50"
+                    >
+                    <button id="addQuoteBtn" class="add-btn">添加语录</button>
+                </div>
+
+                <!-- 搜索栏 -->
+                <div class="search-section">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="搜索语录..."
+                    >
+                </div>
+
+                <!-- 语录列表 -->
+                <div class="quotes-list" id="quotesList">
+                    <!-- 动态生成的语录项 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 遮罩层 -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
