@@ -1,7 +1,7 @@
 /**
  * Quote Card Application
  * A beautiful, Apple-inspired quote card application with internationalization and advanced management features
- * @author Your Name
+ * @author Xujun (Noah) Wang
  * @version 0.2.0
  */
 
@@ -628,7 +628,7 @@ class QuoteCard {
         card.innerHTML = `
             <div class="card-content">
                 <blockquote class="quote">"${this.escapeHtml(quote.text)}"</blockquote>
-                <cite class="author">— ${this.escapeHtml(quote.author)}</cite>
+                <cite class="author">${this.escapeHtml(quote.author)}</cite>
             </div>
         `;
         return card;
@@ -770,7 +770,7 @@ class QuoteCard {
         return `
             <div class="quote-item" data-id="${quote.id}">
                 <div class="quote-item-text">"${this.escapeHtml(quote.text)}"</div>
-                <div class="quote-item-author">— ${this.escapeHtml(quote.author)}</div>
+                <div class="quote-item-author">${this.escapeHtml(quote.author)}</div>
                 
                 <div class="edit-form">
                     <textarea class="edit-text">${this.escapeHtml(quote.text)}</textarea>

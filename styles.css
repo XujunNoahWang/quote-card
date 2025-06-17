@@ -524,12 +524,12 @@ body {
 .add-section textarea:focus,
 .add-section input:focus {
     outline: none;
-    border-color: var(--toggle-active);
+    border-color: #007aff;
 }
 
 .add-btn {
     padding: 12px 24px;
-    background-color: var(--toggle-active);
+    background-color: #007aff;
     color: white;
     border: none;
     border-radius: 8px;
@@ -563,7 +563,7 @@ body {
 
 .search-section input:focus {
     outline: none;
-    border-color: var(--toggle-active);
+    border-color: #007aff;
 }
 
 /* 语录列表 */
@@ -585,7 +585,7 @@ body {
 }
 
 .quote-item:hover {
-    border-color: var(--toggle-active);
+    border-color: #007aff;
 }
 
 .quote-item-text {
@@ -620,7 +620,7 @@ body {
 
 .action-btn:hover {
     background-color: var(--bg-secondary);
-    border-color: var(--toggle-active);
+    border-color: #007aff;
     color: var(--text-primary);
 }
 
